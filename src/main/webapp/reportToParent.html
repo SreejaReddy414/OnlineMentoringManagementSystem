@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Report</title>
+    <link rel="stylesheet" href="rtp.css">
+</head>
+<body>
+    <header>
+        <h1>Parent Report</h1>
+    </header>
+
+    <div class="container">
+        <main>
+            <h2>Send Parent Report</h2>
+            <form id="parentReportForm" onsubmit="generateReport(event)">
+                <label for="parentEmail">Parent's Email:</label>
+                <input type="email" id="parentEmail" name="parentEmail" placeholder="Enter parent's email" required><br><br>
+
+                <label for="reportOption">Select Report Type:</label>
+                <select id="reportOption" name="reportOption">
+                    <option value="attendance">Attendance</option>
+                    <option value="marks">Marks</option>
+                    <option value="issues">Any Issues</option>
+                </select><br><br>
+
+                <label for="rollNo">Roll No:</label>
+                <input type="text" id="rollNo" name="rollNo" placeholder="Enter Roll No" required><br><br>
+
+                <label for="data">Attendance/Marks/Issues:</label>
+                <input type="text" id="data" name="data" placeholder="Enter Data" required><br><br>
+                
+                <label for="employeeId">Employee ID:</label>
+                <input type="text" id="employeeId" name="employeeId" placeholder="Enter Employee ID" required><br><br>
+
+                <button type="submit">Generate Report</button>
+
+                <button type="button" id="sendEmailButton" onclick="sendEmail()">Save Report Details</button>
+            </form>
+
+            <div id="generatedReport" style="display: none;">
+                <h3>Generated Report</h3>
+                <p id="reportTemplate"></p>
+                <a id="downloadLink" href="#" download="report.txt">Download Report</a>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function generateReport(event) {
+            event.preventDefault(); // Prevent form submission
+
+            var parentEmail = document.getElementById("parentEmail").value;
+            var reportOption = document.getElementById("reportOption").value;
+            var rollNo = document.getElementById("rollNo").value;
+            var data = document.getElementById("data").value;
+            var employeeId = document.getElementById("employeeId").value;
+
+            var template = "";
+
+            if (reportOption === "attendance") {
+                template = "Dear parent,\n\nThis is to inform you that your ward with Roll No. " + rollNo + " has attendance of " + data + ".\n\nSincerely,\nThe Mentor";
+            } else if (reportOption === "marks") {
+                template = "Dear parent,\n\nThis is to inform you that your ward with Roll No. " + rollNo + " has scored " + data + " marks.\n\nSincerely,\nThe Mentor";
+            } else if (reportOption === "issues") {
+                template = "Dear parent,\n\nThis is to inform you that there are " + data + " issues to report for your ward with Roll No. " + rollNo + ".\n\nSincerely,\nThe Mentor";
+            }
+
+            var reportTemplateElement = document.getElementById("reportTemplate");
+            reportTemplateElement.textContent = template;
+
+            var downloadLinkElement = document.getElementById("downloadLink");
+            downloadLinkElement.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(template));
+            downloadLinkElement.style.display = "block";
+
+            var generatedReportDiv = document.getElementById("generatedReport");
+            generatedReportDiv.style.display = "block";
+        }
+
+        function sendEmail() {
+            var parentEmail = document.getElementById("parentEmail").value;
+            var reportOption = document.getElementById("reportOption").value;
+            var rollNo = document.getElementById("rollNo").value;
+            var data = document.getElementById("data").value;
+            var template = document.getElementById("reportTemplate").textContent;
+            var employeeId = document.getElementById("employeeId").value;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "sendEmail", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        alert(xhr.responseText);
+                    } else {
+                        alert("Failed to save email details. Please try again later.");
+                    }
+                }
+            };
+            xhr.send("parentEmail=" + encodeURIComponent(parentEmail) + "&reportType=" + encodeURIComponent(reportOption) + "&rollNo=" + encodeURIComponent(rollNo) + "&data=" + encodeURIComponent(data) + "&template=" + encodeURIComponent(template) + "&employeeId=" + encodeURIComponent(employeeId));
+        }
+    </script>
+</body>
+</html>

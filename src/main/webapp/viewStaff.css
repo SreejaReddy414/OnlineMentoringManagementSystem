@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: left;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 150px; /* Adjust top margin for better alignment */
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 36px; /* Increase font size */
+    color: #4CAF50; /* Change color to green */
+    text-align: center; /* Center align the text */
+}
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+select {
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+select, #department {
+    padding: 15px; /* Increase padding */
+    font-size: 18px; /* Increase font size */
+    width: 100%; /* Make dropdown width 100% */
+    margin-bottom: 30px; /* Increase bottom margin */
+    border: 2px solid #4CAF50; /* Change border color */
+    border-radius: 8px; /* Increase border radius */
+    background-color: #f4f4f4; /* Change background color */
+    transition: border-color 0.3s, background-color 0.3s; /* Add transition effect */
+}
+
+select:focus, #department:focus {
+    outline: none; /* Remove default focus outline */
+    border-color: #45a049; /* Change border color on focus */
+}
+
+input[type="submit"] {
+    padding: 15px 30px; /* Increase padding */
+    font-size: 18px; /* Increase font size */
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}

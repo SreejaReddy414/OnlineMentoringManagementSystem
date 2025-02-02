@@ -1,0 +1,142 @@
+/* .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+} */
+form{
+    font-size: 25px; 
+    
+}
+body{
+    background-color: #f0f0f0;
+}
+header{
+    background-color: #333;
+    color:white;
+}
+ 
+.img{
+    position: absolute;
+    right: 50px;
+    top:150px;
+    height: 50px;
+}
+form {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+label {
+    text-align: center;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+
+button[type="submit"] {
+    width:100px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.container {
+    text-align: center;
+}
+
+.img {
+    margin-left: 20px;;
+    margin-top: 20px;
+}
+.insert-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #3498db;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.container {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    font-size: 16px;
+    line-height: 2;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+button[type="submit"] {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+.img {
+    text-align: center;
+    margin-top: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+} */
+

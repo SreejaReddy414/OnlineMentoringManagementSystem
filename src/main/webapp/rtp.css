@@ -1,0 +1,81 @@
+/* Add this CSS to your existing stylesheet or create a new CSS file */
+
+/* Header Styling */
+header {
+    background-color: #4CAF50; /* Green header */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 24px;
+}
+
+/* Form Styling */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="email"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input[type="email"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #4CAF50; /* Green border on focus */
+}
+
+button[type="submit"],
+button[type="button"] {
+    background-color: #4CAF50; /* Green button */
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover,
+button[type="button"]:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Background */
+body {
+    background-color: #f2f2f2; /* Light gray background */
+}
+
+/* Typography */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    margin-bottom: 20px;
+}
+
+/* Container Styling */
+.container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}

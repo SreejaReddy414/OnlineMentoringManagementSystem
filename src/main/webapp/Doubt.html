@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ask Doubts</title>
+    <link rel="stylesheet" href="doubts.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Ask your Doubts</h1>
+    </header>
+
+    <div class="container">
+      <main>
+        <form id="doubtForm" action="submitDoubt" method="post" enctype="multipart/form-data">
+          <label for="userName">Name:</label>
+          <input
+            type="text"
+            id="userName"
+            name="userName"
+            placeholder="Enter your name"
+            required
+          /><br /><br />
+
+          <label for="userID">Roll no:</label>
+          <input
+            type="text"
+            id="userID"
+            name="userID"
+            placeholder="Enter your ID"
+            required
+          /><br /><br />
+
+          <label for="userDepartment">Department:</label>
+          <select id="userDepartment" name="userDepartment" required>
+            <option value="CSE">CSE</option>
+            <option value="IT">IT</option>
+            <option value="ECE">ECE</option>
+            <option value="EEE">EEE</option>
+            <option value="AIML">AIML</option>
+            <option value="CS">Cyber Security</option>
+            <option value="DataScience">Data Science</option>
+            <option value="Civil">Civil Engineering</option>
+            <option value="Mechanical">Mechanical Engineering</option>
+          </select><br /><br />
+
+          <label for="doubtText">Ask your doubt:</label>
+          <textarea
+            id="doubtText"
+            name="doubtText"
+            placeholder="Type your doubt here"
+          ></textarea><br /><br />
+
+          <button type="button" id="startRecording">Start Recording</button>
+          <button type="button" id="stopRecording">Stop Recording</button>
+          <input type="file" id="audioFile" name="audioFile" accept="audio/*" style="display: none;" />
+
+          <audio id="recordedAudio" controls style="display: none"></audio><br /><br />
+
+          <button type="submit">Submit Doubt</button>
+        </form>
+      </main>
+    </div>
+
+    <script>
+      const startRecordingBtn = document.getElementById("startRecording");
+      const stopRecordingBtn = document.getElementById("stopRecording");
+      const recordedAudio = document.getElementById("recordedAudio");
+      const audioFileInput = document.getElementById("audioFile");
+      const doubtText = document.getElementById("doubtText");
+      const doubtForm = document.getElementById("doubtForm");
+      let mediaRecorder;
+      let chunks = [];
+
+      startRecordingBtn.addEventListener("click", startRecording);
+      stopRecordingBtn.addEventListener("click", stopRecording);
+
+      function startRecording() {
+        navigator.mediaDevices
+          .getUserMedia({ audio: true })
+          .then(function (stream) {
+            mediaRecorder = new MediaRecorder(stream);
+            mediaRecorder.start();
+
+            mediaRecorder.ondataavailable = function (e) {
+              chunks.push(e.data);
+            };
+          })
+          .catch(function (err) {
+            console.error("Error accessing microphone: ", err);
+          });
+      }
+
+      function stopRecording() {
+        mediaRecorder.stop();
+
+        mediaRecorder.onstop = function () {
+          const audioBlob = new Blob(chunks, {
+            type: "audio/ogg; codecs=opus",
+          });
+          const audioUrl = URL.createObjectURL(audioBlob);
+          recordedAudio.src = audioUrl;
+          recordedAudio.style.display = "block";
+
+          const file = new File([audioBlob], "recording.ogg", {
+            type: "audio/ogg; codecs=opus",
+          });
+          const dataTransfer = new DataTransfer();
+          dataTransfer.items.add(file);
+          audioFileInput.files = dataTransfer.files;
+        };
+      }
+
+      doubtForm.addEventListener("submit", function (e) {
+        if (!doubtText.value.trim() && audioFileInput.files.length === 0) {
+          e.preventDefault();
+          alert("Please fill out the text field or provide an audio recording.");
+        }
+      });
+    </script>
+  </body>
+</html>

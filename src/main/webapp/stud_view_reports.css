@@ -1,0 +1,141 @@
+/* Styles for the container */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    margin: 40px auto;
+    max-width: 800px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the reports */
+.report {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    color: white;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.report:nth-child(even) {
+    background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+
+.report:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.report p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #fff;
+}
+
+.report p strong {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Styles for the header */
+header {
+  /*  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);*/
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px 12px 0 0;
+    margin-bottom: 30px;
+}
+
+header h2 {
+    margin: 0;
+    font-size: 28px;
+}
+
+/* Styles for the form */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+form label {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+form input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+form button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+form button:hover {
+    background: linear-gradient(135deg, #28a745 0%, #43cea2 100%);
+}
+
+
+/* Additional utility classes */
+.text-center {
+    text-align: center;
+}
+
+.text-muted {
+    color: #6c757d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    header {
+        padding: 15px;
+    }
+
+    header h2 {
+        font-size: 22px;
+    }
+
+    form label {
+        font-size: 16px;
+    }
+
+    form input[type="text"] {
+        font-size: 14px;
+    }
+
+    form button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}

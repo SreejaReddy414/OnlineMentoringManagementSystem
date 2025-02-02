@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Reports</title>
+    <link rel="stylesheet" href="vr.css">
+</head>
+<body>
+    <header>
+    </header>
+
+    <div class="container">
+        <form action="ViewReportsServlet" method="get">
+            <label for="employee_id">Enter Employee ID:</label>
+            <input type="text" id="employee_id" name="employee_id">
+            <button type="submit">View Reports</button>
+        </form>
+        <main id="reports">
+            <!-- Reports will be displayed here -->
+        </main>
+    </div>
+</body>
+</html>

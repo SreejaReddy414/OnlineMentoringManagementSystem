@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="addstud.css">
+    <title>Add Student</title>
+    <script>
+        function showParentDetailsForm() {
+            document.getElementById('student-details').style.display = 'none';
+            document.getElementById('parent-details').style.display = 'block';
+        }
+
+        function showStudentDetailsForm() {
+            document.getElementById('parent-details').style.display = 'none';
+            document.getElementById('student-details').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Insert Student Details</h1>
+    </header>
+    <div class="container">
+        <main>
+            <!-- Combined Form for Student and Parent Details -->
+            <form id="student-parent-form" action="addStudent" method="post" enctype="multipart/form-data">
+                <!-- Student Details -->
+                <div id="student-details">
+                    <label for="studname">Student Name:</label>
+                    <input type="text" id="studname" name="studname" placeholder="Enter student name" required>
+
+                    <label for="studrollno">Student Roll Number:</label>
+                    <input type="text" id="studrollno" name="studrollno" placeholder="Enter student roll number" required>
+
+                    <label for="studyear">Year of Joining:</label>
+                    <input type="text" id="studyear" name="studyear" placeholder="Enter year of joining" required>
+
+                    <label for="studmobile">Student Mobile:</label>
+                    <input type="text" id="studmobile" name="studmobile" placeholder="Enter mobile number" required>
+
+                    <label for="studemail">Email:</label>
+                    <input type="email" id="studemail" name="studemail" placeholder="Enter email" required>
+
+                    <label for="studgender">Gender:</label>
+                    <div class="radio-group">
+                        <input type="radio" id="male" name="gender" value="Male" required>
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="Female" required>
+                        <label for="female">Female</label>
+                    </div>
+
+                    <label for="studdob">Date of Birth:</label>
+                    <input type="date" id="studdob" name="studdob" required>
+
+                    <label for="studdept">Department:</label>
+                    <select id="studdept" name="studdept" required>
+                        <option value="CSE">CSE</option>
+                        <option value="IT">IT</option>
+                        <option value="ECE">ECE</option>
+                        <option value="EEE">EEE</option>
+                        <option value="AIML">AIML</option>
+                        <option value="CS">Cyber Security</option>
+                        <option value="DataScience">Data Science</option>
+                        <option value="Civil">Civil Engineering</option>
+                        <option value="Mechanical">Mechanical Engineering</option>
+                    </select>
+
+                    <label for="studstate">State:</label>
+                    <input type="text" id="studstate" name="studstate" placeholder="Enter state name" required>
+
+                    <label for="studcountry">Country:</label>
+                    <input type="text" id="studcountry" name="studcountry" placeholder="Enter country name" required>
+
+                    <label for="studphoto">Photo:</label>
+                    <input type="file" id="studphoto" name="studphoto" required>
+
+                    <div class="insert-button-container">
+                        <button type="button" onclick="showParentDetailsForm()">Next</button>
+                    </div>
+                </div>
+
+                <!-- Parent Details -->
+                <div id="parent-details" style="display: none;">
+                    <h2>Parent Details</h2>
+                    <h3>Mother's Details</h3>
+                    <label for="mothername">Mother's Name:</label>
+                    <input type="text" id="mothername" name="mothername" placeholder="Enter mother's name" required>
+
+                    <label for="mothermobile">Mother's Mobile:</label>
+                    <input type="text" id="mothermobile" name="mothermobile" placeholder="Enter mother's mobile number" required>
+
+                    <label for="motheremail">Mother's Email:</label>
+                    <input type="email" id="motheremail" name="motheremail" placeholder="Enter mother's email" required>
+
+                    <h3>Father's Details</h3>
+                    <label for="fathername">Father's Name:</label>
+                    <input type="text" id="fathername" name="fathername" placeholder="Enter father's name" required>
+
+                    <label for="fathermobile">Father's Mobile:</label>
+                    <input type="text" id="fathermobile" name="fathermobile" placeholder="Enter father's mobile number" required>
+
+                    <label for="fatheremail">Father's Email:</label>
+                    <input type="email" id="fatheremail" name="fatheremail" placeholder="Enter father's email" required>
+
+                    <div class="insert-button-container">
+                        <button type="button" onclick="showStudentDetailsForm()">Back</button>
+                        <button type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </main>
+    </div>
+</body>
+</html>
